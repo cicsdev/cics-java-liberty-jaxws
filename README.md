@@ -2,7 +2,7 @@
 
 Developing a JAX-WS Web service for Liberty
 
-The aim of this article is to show how you can use the CICS Liberty JVM server to expose an existing CICS program as a web service using the JAX-WS specification.
+The aim of this project is to show how you can use the CICS Liberty JVM server to expose an existing CICS program as a web service using the JAX-WS specification.
 
 #Pre-reqs
 
