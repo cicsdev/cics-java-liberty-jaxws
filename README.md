@@ -15,5 +15,4 @@ The sample  code can be added to a dynamic web project and deployed into a CICS 
 
 #Reference
 
-More information about this sample can be found at the following web site
-https://developer.ibm.com/cics/2016/04/22/java-for-cics-developing-a-jax-ws-web-service-for-liberty/
+More information about this sample can be found in this CICS developer center [tutorial](https://developer.ibm.com/cics/2016/04/22/java-for-cics-developing-a-jax-ws-web-service-for-liberty/)
