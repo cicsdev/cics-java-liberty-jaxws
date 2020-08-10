@@ -38,42 +38,14 @@ For details on how to configure a Liberty JVM server please refer to .....
 ## Supporting material
 The Java sample code from this article is available for download and can be imported into an Eclipse IDE using using the following procedure:
 
-1.  Download the Java source from the [cics-java-liberty-jaxws](https://github.com/cicsdev/cics-java-liberty-jaxws) GitHub repository
-2.  Unzip the archive and copy the `com/ibm/cicsdev/bean` and `com/ibm/cicsdev/ws` folders into the `Java Resources/src` folder of your Eclipse dynamic web project
-3.  Optionally download the `MyCICSService.wsdl` and copy into the Eclipse project if you want to test the service
+1.  Create a dynamic Web project in Eclipse
+1.  Download the Java source from the [cics-java-liberty-jaxws](https://github.com/cicsdev/cics-java-liberty-jaxws) 
+1.  Unzip the archive and copy the `com/ibm/cicsdev/bean` and `com/ibm/cicsdev/ws` folders into the `Java Resources/src` folder of the Eclipse dynamic web project
+1.  Optionally download the `MyCICSService.wsdl` and copy into the Eclipse project if you want to test the service
 
 The CICS COBOL sample can be downloaded from the [cics-java-jzosprog](https://github.com/cicsdev/cics-java-jzosprog) GitHub repository
 
-
-### Developing the web applications that invokes an existing CICS program
-
-xxxxx
-
-### CICS program communication area 
-
-The COMMAREA used by our sample COBOL CICS program is, is a simple record based structure as follows.
-
-```COBOL
-03 DATA-PAYLOAD.
-  05 BINARY-DIGIT               PIC 9(4) COMP.
-  05 CHARACTER-STRING           PIC X(30).
-  05 NUMERIC-STRING             PIC 9(18).
-  05 PACKED-DIGIT               PIC 9(15) COMP-3.
-  05 PACKED-DIGIT-WITH-COMMA    PIC 9(12)V9(3) COMP-3.
-  05 SIGNED-PACKED              PIC S9(12) COMP-3.
-  05 BOOL                       PIC X.
-    88 BOOL-FALSE               value X'00'.
-    88 BOOL-TRUE                value X'01' through X'FF'.
-  05 RESULT.
-    09 RESULT-CODE              PIC S9(5) VALUE +0.
-    09 RESULT-TEXT              PIC X(25).
-```
-
-In our case the COMMAREA structure contains both the intput and output data. The input is a set of numeric values, and the output a numeric code and a text string.
-
-
 In the following sections you will develop the actual Java code that will expose a web service on you CICS region using JAX\-WS. This web service will interact with an existing CICS program using the JCICS API. For more details on using the JCICS API refer to [Developing Java web applications to run in Liberty JVM](http://www.ibm.com/support/knowledgecenter/SSGMCP_5.6.0/com.ibm.cics.ts.java.doc/topics/dfhpj_devjavaweb.html).
-
 
 ### Create input and output messages
 
@@ -128,11 +100,9 @@ public class MyCICSService {
 }
 ```
 
-
-
 ### Develop the business logic
 
-This section focuses on the Java business logic of your web service. In this section we will:
+This section focuses on the Java business logic of the web service. In this section we will:
 
 1.  Use the Java wrapper to map input parameters to the binary structure that will be used to link to a CICS program
 2.  Invoke the CICS COBOL program using JCICS API
@@ -143,14 +113,33 @@ This section focuses on the Java business logic of your web service. In this sec
 COBOL programs invoked using the JCICS LINK API generally require a binary record based structure for input and output when using a CICS COMMAREA.
 You can use  either the IBM Record Generator for Java or the Rational J2C tools to create Java helper classes to marshall the data.
 
-We then used the IBM Record Generator to creat the helper class `CommareaWrapper`. This is used to both build the record and parse the response. 
+The COMMAREA used by our sample COBOL CICS program is a simple record based structure as follows.
+
+```COBOL
+03 DATA-PAYLOAD.
+  05 BINARY-DIGIT               PIC 9(4) COMP.
+  05 CHARACTER-STRING           PIC X(30).
+  05 NUMERIC-STRING             PIC 9(18).
+  05 PACKED-DIGIT               PIC 9(15) COMP-3.
+  05 PACKED-DIGIT-WITH-COMMA    PIC 9(12)V9(3) COMP-3.
+  05 SIGNED-PACKED              PIC S9(12) COMP-3.
+  05 BOOL                       PIC X.
+    88 BOOL-FALSE               value X'00'.
+    88 BOOL-TRUE                value X'01' through X'FF'.
+  05 RESULT.
+    09 RESULT-CODE              PIC S9(5) VALUE +0.
+    09 RESULT-TEXT              PIC X(25).
+```
+
+In our case the COMMAREA structure contains both the intput and output data. The input `DATA-PAYLOAD` is a set of numeric values, and the `OUTPUT` result a numeric code and a text string.
+
+We used the IBM Record Generator to create a Java helper class `CommareaWrapper` based on this COMMAREA. This is used to both build the record and parse the response. 
 The record generator uses the `com.ibm.jzos.fields` package which contains data-type converters for native language structure elements. 
 The package is part of the IBM JZOS toolkit and is supplied with the Java SDK on z/OS in ibmjzos.jar. It required to both generate and execute the Java classes, and must be added to the 
 Eclipse project build path to compiler the sample.
 For further details on using the IBM record generator refer to this article [Building Java records from COBOL with IBM JZOS](https://developer.ibm.com/cics/2016/05/12/java-cics-using-ibmjzos/)
 
 >Note: For details on the alternative Rational J2C tool, refer to this article [Generating Java Records from COBOL with Rational J2C Tools](https://developer.ibm.com/cics/2016/06/29/java-cics-using-rational-j2c/)
-
 
 
 We can then use the following Java setter methods in our `MyCICSService` class to populate fields in the  `CommareaWrapper` class as follows:
@@ -165,7 +154,7 @@ commareaWrapper.setSignedPacked(signedDecimal);
 commareaWrapper.setBool(bool);
 ```
 
-#### 2. Invoke the CICS COBOL program
+#### Invoke the CICS COBOL program
 
 Now that we have built a record object, we can build a byte array from this usng the `getByteBuffer()` method and then pass this into CICS using a COMMAREA with the [JCICS](http://www.ibm.com/support/knowledgecenter/SSGMCP_5.6.0/com.ibm.cics.ts.java.doc/topics/dfhpjlp.html) version of an `EXEC CICS LINK` command.
 This can be achieved using the `link()` method on the `com.ibm.cics.server.Program` class as shown.
