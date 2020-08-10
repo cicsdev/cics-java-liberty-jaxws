@@ -15,7 +15,7 @@ The sample  code can be added to a dynamic web project and deployed into a CICS 
 
 ## Reference
 
-More information about this sample can be found in this CICS developer center [tutorial](https://developer.ibm.com/cics/2016/04/22/java-for-cics-developing-a-jax-ws-web-service-for-liberty/)
+More information about this sample can be found in the accompanying [tutorial](blog.md)
 
 ## License
 This project is licensed under [Apache License Version 2.0](LICENSE). 
