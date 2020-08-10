@@ -19,6 +19,7 @@ Before running through this tutorial you should have the following resources in 
 
 - CICS region (CICS TS V5.2) or later
 - A Liberty JVM server with the following features added:
+    - `cicsts:core-1.0`
     - `jaxws-2.2` or `jaxws-2.3`
 - Java SE 1.8 on the z/OS system
 - Java SE 1.8 on the workstation
