@@ -9,9 +9,9 @@ The flow will be as follows:
 
 1.  HTTP web service request will be accepted by the Liberty HTTP listener
 1.  The Java application using the JAX\-WS API will parse the web services request
-1.  The Java application call to an existing CICS COBOL program using the JCICS API passing a record created using the IBM Record Generator (IRG)
+1.  The Java application calls an existing CICS COBOL program using the JCICS API passing a record created using the IBM Record Generator
 1.  The COBOL program will return data in a COMMAREA to the Java application
-1.  The Java application will parse the returned data using an IRG helper class, and then a response returned to the caller.
+1.  The Java application will parse the returned data using a helper class, and then a response returned to the caller.
 
 ## Prerequisites
 
@@ -27,7 +27,7 @@ Before running through this tutorial you should have the following resources in 
     * CICS Explorer SDK for Java support
     * CICS SDK for Web and JSP support
 	* Web Sphere developer tools 
-	* z/OS Explorer (if you intend to mmove generated artefacts to z/OS)
+	* z/OS Explorer (if you intend to move generated artefacts to z/OS)
     
 To develop Java programs for CICS you can use any development environment you are familiar with. In this tutorial we are using the Eclipse environment with the CICS Explorer SDK for Java.
 For details on how to set up your development environment please refer to 
