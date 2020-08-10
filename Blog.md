@@ -29,11 +29,11 @@ Before running through this tutorial you should have the following resources in 
 	* Web Sphere developer tools 
 	* z/OS Explorer (if you intend to mmove generated artefacts to z/OS)
     
-To develop Java program for CICS you can use any development environment you are familiar with. In this tutorial we are using the Eclipse environment with the CICS Explorer SDK for Java.
+To develop Java programs for CICS you can use any development environment you are familiar with. In this tutorial we are using the Eclipse environment with the CICS Explorer SDK for Java.
 For details on how to set up your development environment please refer to 
-[Setting up development environment](http://www.ibm.com/support/knowledgecenter/SSGMCP_5.6.0/com.ibm.cics.ts.java.doc/topics/installingthelibertyprofile.html).
+[Setting up the development environment](https://www.ibm.com/support/knowledgecenter/SSGMCP_5.6.0/applications/developing/java/installingthelibertyprofile.html).
 
-For details on how to configure a Liberty JVM server please refer to .....
+For details on how to configure a Liberty JVM server please refer to [this topic](https://www.ibm.com/support/knowledgecenter/SSGMCP_5.6.0/configuring/java/config_jvmserver_liberty.html)
 
 ## Supporting material
 The Java sample code from this article is available for download and can be imported into an Eclipse IDE using using the following procedure:
@@ -202,7 +202,7 @@ There are several ways to deploy a Web application into a CICS Liberty JVM serve
 - Or you can add the WAR to a CICS bundle project and export this to CICS and install using a CICS BUNDLE resource definition.
 - Or you can use the Liberty dropins folder to dynamically load applications.
  
-For more details on the deployment process please refer to [Deploying a web application in a CICS bundle to a Liberty JVM server](http://www.ibm.com/support/knowledgecenter/SSGMCP_5.6.0/com.ibm.cics.ts.java.doc/topics/dfhpjlp.html).
+For more details on the deployment process please refer to [Deploying applications to a JVM server]((http://www.ibm.com/support/knowledgecenter/SSGMCP_5.6.0/com.ibm.cics.ts.java.doc/topics/dfhpjlp.html).
 
 ### Testing the web service
 
