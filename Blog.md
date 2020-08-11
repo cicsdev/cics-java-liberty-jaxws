@@ -137,7 +137,7 @@ We used the IBM Record Generator to create a Java helper class `CommareaWrapper`
 The record generator uses the `com.ibm.jzos.fields` package which contains data-type converters for native language structure elements. 
 The package is part of the IBM JZOS toolkit and is supplied with the Java SDK on z/OS in ibmjzos.jar. It required to both generate and execute the Java classes, and must be added to the 
 Eclipse project build path to compiler the sample.
-For further details on using the IBM record generator refer to this article [Building Java records from COBOL with IBM JZOS](https://developer.ibm.com/cics/2016/05/12/java-cics-using-ibmjzos/)
+For further details on using the IBM record generator refer to this article [Building Java records from COBOL with the IBM Record Generator](https://developer.ibm.com/cics/2016/05/12/java-cics-using-ibmjzos/)
 
 >Note: For details on the alternative Rational J2C tool, refer to this article [Generating Java Records from COBOL with Rational J2C Tools](https://developer.ibm.com/cics/2016/06/29/java-cics-using-rational-j2c/)
 
