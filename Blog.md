@@ -202,7 +202,7 @@ There are several ways to deploy a Web application into a CICS Liberty JVM serve
 - Or you can add the WAR to a CICS bundle project and export this to CICS and install using a CICS BUNDLE resource definition.
 - Or you can use the Liberty dropins folder to dynamically load applications.
  
-For more details on the deployment process please refer to [Deploying applications to a JVM server]((http://www.ibm.com/support/knowledgecenter/SSGMCP_5.6.0/com.ibm.cics.ts.java.doc/topics/dfhpjlp.html).
+For more details on the deployment process please refer to the Knowledge Center topic [Deploying applications to a JVM server](http://www.ibm.com/support/knowledgecenter/SSGMCP_5.6.0/com.ibm.cics.ts.java.doc/topics/dfhpjlp.html).
 
 ### Testing the web service
 
