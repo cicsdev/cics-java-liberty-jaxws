@@ -15,7 +15,7 @@ The sample  code can be added to a dynamic web project and deployed into a CICS 
 
 ## Reference
 
-More information about this sample can be found in the accompanying [tutorial](Blog.md)
+More information about this sample can be found in the accompanying [tutorial](blog.md)
 
 ## License
 This project is licensed under [Apache License Version 2.0](LICENSE). 
