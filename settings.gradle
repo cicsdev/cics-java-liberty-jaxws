@@ -1,3 +1,0 @@
-rootProject.name = 'cics-java-liberty-jakarta-jaxws'
-include(':cics-java-liberty-jaxws-app')
-include(':cics-java-liberty-jaxws-bundle')
