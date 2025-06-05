@@ -1,0 +1,48 @@
+plugins
+{
+	id 'java'
+	id 'eclipse'
+	id 'war'
+}
+
+group = 'com.ibm.cicsdev'
+//archivesBaseName='cics-java-liberty-jakarta-jaxws'
+version = '1.0.0'
+
+
+java
+{
+	sourceCompatibility = JavaVersion.VERSION_17
+	targetCompatibility = JavaVersion.VERSION_17
+}
+
+// If in Eclipse, add Javadoc to the local project classpath
+eclipse 
+{
+    classpath 
+    {
+        downloadJavadoc = true
+    }
+}
+
+repositories 
+{
+    mavenCentral()
+}
+
+dependencies 
+{
+
+    // https://mvnrepository.com/artifact/jakarta.xml.ws/jakarta.xml.ws-api
+    implementation("jakarta.xml.ws:jakarta.xml.ws-api:4.0.2")
+    // https://mvnrepository.com/artifact/com.ibm.jzos/ibmjzos
+    implementation("com.ibm.jzos:ibmjzos:2.4.11.3")
+    compileOnly enforcedPlatform("com.ibm.cics:com.ibm.cics.ts.bom:6.1-20240903141936-PH59389")
+      
+    // Don't include JCICS in the final build (no need for version because we have BOM)
+    compileOnly("com.ibm.cics:com.ibm.cics.server")
+    compileOnly("com.ibm.cics:com.ibm.cics.server.invocation.annotations")
+
+    // Use the V6 annotation processor as this supports Java 17
+    annotationProcessor("com.ibm.cics:com.ibm.cics.server.invocation:6.1")
+}
