@@ -1,21 +1,15 @@
-# cics-java-liberty-jaxws
+cics-java-liberty-jaxws
+=====================
 
-Developing a JAX-WS Web service for Liberty
+Sample JAX-WS web application demonstrating how to use JAX-WS in CICS Liberty. 
 
-The aim of this project is to show how you can use the CICS Liberty JVM server to expose an existing CICS program as a web service using the JAX-WS specification.
 
-## Pre-reqs
+## Versions
+| CICS TS for z/OS Version | Branch                                 | Minimum Java Version | Build Status |
+|--------------------------|----------------------------------------|----------------------|--------------|
+| 5.5, 5.6                 | [cicsts/v5.5](/../../tree/cicsts/v5.5) | 8                    | [![Build](https://github.com/cicsdev/cics-java-liberty-jaws/actions/workflows/java.yaml/badge.svg?branch=cicsts%2Fv5.5)](https://github.com/cicsdev/cics-java-liberty-jaxws/actions/workflows/java.yaml) |
+| 6.1                      | [cicsts/v6.1](/../../tree/cicsts/v6.1) | 17                   | [![Build](https://github.com/cicsdev/cics-java-liberty-jaws/actions/workflows/java.yaml/badge.svg?branch=cicsts%2Fv6.1)](https://github.com/cicsdev/cics-java-liberty-jaxws/actions/workflows/java.yaml) |
 
-    CICS TS V5.2 or later
-    Eclipse with WebSphere Developer Tools and CICS Explorer SDK installed
-
-## Configuration
-
-The sample  code can be added to a dynamic web project and deployed into a CICS Liberty JVM server as a web archive (WAR).
-
-## Reference
-
-More information about this sample can be found in the accompanying [tutorial](blog.md)
 
 ## License
-This project is licensed under [Apache License Version 2.0](LICENSE). 
+This project is licensed under [Apache License Version 2.0](LICENSE).
